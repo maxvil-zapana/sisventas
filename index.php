@@ -7,23 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>.:: Login de Usuario ::.</title>
     <script src="librerias/jquery/jquery.js"></script>
+    <script src="js/funciones.js"></script>
     <link rel="stylesheet" href="css/Framework.css">
+    
+    
     <style>
-        .contenedor {
-            border: 1px solid red;
-        }
-
-        .flexContainer {
-            border: 1px solid green;
-            width: 20%;
-        }
-
         form {
-            border: 1px solid blue;
+            width: 30%; 
         }
-
-        .segundo {
-            border: 1px solid red;
+        img{
+            width: 50%;
+            height: 50%;
+            margin: 0 auto;
+            display: block;
         }
     </style>
 </head>
@@ -31,21 +27,61 @@
 <body>
     <div class="contenedor">
         <div class="flexContainer">
-            <div>
-                <form action="">
-                    <label for="nombre">Nombre</label>
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
-                </form>
-            </div>
-            <div>
-                hola
-            </div>
+            <form action="" id="frmLogin"> 
+                <h1 class="tituloForm">LOGIN</h1>
+                <div class="logo">
+                    <img src="img/logo.png" alt="fotografia">
+                </div>
+                <label for="nombre">Usuario</label>
+                <input type="text" class="input" name="usuario">
+                <label for="nombre">Password</label>
+                <input type="password" class="input" name="password">
+                <div class="botones">
+                    <button class="boton"id="entrarSistema">Entrar</button> 
+                    <a href="registro.php"class="boton verde" id="registro">Registro</a>
+                </div>
+            </form>
         </div>
 
     </div>
 </body>
 
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#entrarSistema').click(function(){
+
+            vacios=validarFormVacio('frmLogin');
+                if(vacios>0){
+                    alert ("Debes llenar todos los campos");
+                    return false;
+                }
+
+            datos=$('#frmLogin').serialize();
+            // console.log(datos);
+
+            $.ajax({
+                type:"POST",
+                data:datos,
+                async:true,
+                url:"procesos/regLogin/login.php",
+                success:function(r){
+
+                    if (r==1){
+                        window.location="vistas/inicio.php";
+                        console.log(r);
+
+                    }else{
+                        alert("no se pudo acceder");
+                    }
+
+                }
+            });
+
+        });
+
+    });
+        
+
+</script>

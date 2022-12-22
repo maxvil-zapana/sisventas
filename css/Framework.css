@@ -51,7 +51,7 @@ box-sizing: border-box;
        width: var(--ancho-contenedor);
        margin: 20px auto;
        overflow: hidden;
-       border: 1px solid red;
+       /* border: 1px solid red; */
    }
 /* =====================
     *	GRID	*
@@ -196,27 +196,43 @@ box-sizing: border-box;
          font-weight:700;
          font-size:44px;
      }
-
+     .flexContainer{
+        
+        width: 100%;
+        display:flex;
+        flex-direction:row;
+        justify-content: space-around;
+        margin:0 auto;
+        /* border: 1px solid blue; */
+        padding:20px;
+     }
      /* =====================
          *	FORMULARIOS *
       ===================== */
-     .flexContainer{
-        display:flex;
-        flex-direction:row;
-        justify-content: space-between;
+     form{  
+        padding:20px;
+        border-radius: 10px;
+        border: 1px solid blue;
      }
-
-
 
       form * {
           font-family: var(--fuente);
       }
+      form .tituloForm{
+        text-align: center;
+        color:#641ee7;
+        font-weight: bold;
+      }
+      form a{
+        text-decoration: none;
+      }
       form input{
           padding: 10px 15px;
           border-radius:3px;
-          border: 1px solid #d6d6d6;
+          border: 1px solid blue;
           transition: .3s ease all;
           width: 100%;
+          height: 10px;
           margin-bottom:20px;
       }
 
@@ -226,6 +242,7 @@ box-sizing: border-box;
       }
 
       .boton{
+        width: 40%;
           background:#641ee7;
           border: none;
           cursor: pointer;
@@ -247,6 +264,13 @@ box-sizing: border-box;
         background: #00833d;
       }
 
+      .botones{
+        width: 100%;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        /* border:1px solid red; */
+      }
       /* =====================
           *	HELPERS	*
        ===================== */
