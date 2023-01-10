@@ -20,7 +20,7 @@
     $obj = new Conectar();
     
     if ($obj->conexion()) {
-        echo "la conexion fue un exito";
+        //echo "la conexion fue un exito";
     }
 
     ?>

@@ -44,6 +44,12 @@
         </div>
 
     </div>
+
+
+    <div id="prueba"></div>
+
+
+    <button id="boton_prueba">boton de prueba</button>
 </body>
 
 </html>
@@ -83,5 +89,36 @@
 
     });
         
+
+
+
+    boton = document.getElementById('boton_prueba');
+    boton.onclick=function(){
+
+    info=["manzana", "Banana"]
+
+    //creando un objeto
+    var objeto={
+        metodo:'Get',
+        url:'procesos/reglogin/login.php',
+        async:true,
+        datos:info
+    }
+    const ajax = new Ajax(objeto)
+        
+    console.log(ajax.respuesta())
+    
+
+
+
+        
+
+// document.getElementById(prueba).innerHTML=ajax.respu
+        
+}
+
+
+
+
 
 </script>

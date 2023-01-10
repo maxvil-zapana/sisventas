@@ -10,6 +10,6 @@ require_once "../../clases/usuarios.php";
 // );
 
 // echo $obj->loginUser($datos);
-echo ("1");
+echo ("vengo desde el php");
 
 ?>
