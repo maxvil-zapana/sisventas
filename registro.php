@@ -1,3 +1,21 @@
+<?php
+/*===	PARA QUE EL REGISTRO DE USUARIO APAREZCA CUANDO NO HAY ADMIN REGISTRADO	===*/
+require_once "clases/conexion.php";
+
+$obj = new conectar();
+$conexion = $obj->conexion();
+
+$sql = "SELECT * FROM usuarios where email='admin'";
+$result = mysqli_query($conexion, $sql);
+$validar = 0;
+if (mysqli_num_rows($result) > 0) {
+    header("location:index.php");
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
