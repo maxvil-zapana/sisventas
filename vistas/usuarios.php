@@ -9,7 +9,7 @@ if (isset($_SESSION['usuario'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <title>Usuarios</title>
     <?php require_once "menu.php";?>
 </head>
 <body>

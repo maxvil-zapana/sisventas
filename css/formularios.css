@@ -1,0 +1,123 @@
+/* =====================
+         *	FORMULARIOS *
+      ===================== */
+form {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid blue;
+}
+form * {
+  font-family: var(--fuente);
+}
+fieldset {
+  border-radius: 10px;
+  border: 1px solid blue;
+}
+/*===	TITULO DE FORMULARIO	===*/
+
+form .tituloForm::before {
+  content: "..:: ";
+}
+form .tituloForm::after {
+  content: " ::..";
+}
+form .tituloForm {
+  text-align: center;
+  color: #641ee7;
+  font-weight: bold;
+  text-transform: uppercase
+  ;
+}
+
+/*===	INPUTS	===*/
+form label {
+  font-weight: bold;
+  font-family: var(--fuente);
+}
+form a {
+  text-decoration: none;
+}
+form input,
+form select {
+  padding: 0px 35px;
+  border-radius: 3px;
+  border: 1px solid blue;
+  transition: 0.3s ease all;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+
+/* ¡	css para los iconos de cada imput	! */
+  background-size: 25px 23px;
+  background-repeat: no-repeat;
+  background-position: 5px 0px;
+}
+
+form input:focus,
+form select:focus
+{
+  border: 1px solid #641ee7;
+  outline: thick double #641ee7;
+  border-radius: 10px;
+
+/*===	Iconos de los Inputs	===*/
+}
+.icon-user {
+  background-image: url(../img/user.ico);
+}
+.icon-description {
+  background-image: url(../img/text.ico); 
+}
+.icon-select {
+  background-image: url(../img/select.ico); 
+}
+.icon-password {
+  background-image: url(../img/password.ico); 
+}
+.icon-select {
+  background-image: url(../img/select.ico); 
+}
+.icon-amount {
+  background-image: url(../img/truck.ico); 
+}
+.icon-price {
+  background-image: url(../img/precio.ico); 
+}
+.icon-picture {
+  background-image: url(../img/car-market.png); 
+}
+/*===	BOTONES	===*/
+/* -	DETALLE:
+  -	los botones deben estar creados con la etiqueta span
+  -	para que al presionar no se ejecute la action del formulario*/
+
+.boton {
+  width: 40%;
+  background: #641ee7;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 22px;
+  transition: 0.3s ease all;
+}
+.boton:hover {
+  background: #5114c2;
+}
+.boton.verde {
+  background: rgb(0, 160, 74);
+}
+.boton.verde:hover {
+  background: #00833d;
+}
+
+.botones {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* border:1px solid red; */
+}

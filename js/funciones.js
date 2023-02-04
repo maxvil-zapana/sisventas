@@ -1,17 +1,23 @@
-function validarFormVacio(formulario) {
-  datos = $("#" + formulario).serialize();
+function validarFormVacio(datos) {
+  // datos = serialize(formulario);
   d = datos.split("&");
   vacios = 0;
   for (i = 0; i < d.length; i++) {
     controles = d[i].split("=");
-    if (controles[1] == "A" || controles[1] == "") {
+/* -	DETALLE:
+  -	controles[1]=="A"
+  -	se refiere a los input tipo select, para que detecte como valor vacio
+  -	<option value="A">selecciona</option>	*/
+
+    if (controles[1]=="A"||controles[1] == "") {
       vacios++;
     }
   }
   return vacios;
 }
 
-
+/* -	DETALLE:
+  -	como parametro de la funcion se debe colocar el nombre del formulario*/
 
 function serialize(form) {
   if (!form || form.nodeName !== "FORM") {
