@@ -7,3 +7,4 @@
 7.  librerias: contendra librerias para la creación de pdf,jquery, alertify, bootstrap, y select.
 8.  procesos: contiene archivos intermedios entre las clases y las vistas, estos mandaran entre una y otra cosa.
 9.  vistas: contendra todas las vistas de cada uno de lo modulos.
+10. ayuda: contiene las plantillas deacuerdo al css realizado como formularios, tablas, etc

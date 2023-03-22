@@ -18,4 +18,5 @@ $datos=array(
 
 echo($_POST['apellidos']);
 echo $obj->registroUsuario($datos);
+header("location:../../vistas/usuarios.php");
 ?>

@@ -1,7 +1,6 @@
 <?php
 /*===	PARA QUE EL REGISTRO DE USUARIO APAREZCA CUANDO NO HAY ADMIN REGISTRADO	===*/
 require_once "clases/conexion.php";
-
 $obj = new conectar();
 $conexion = $obj->conexion();
 
@@ -65,8 +64,6 @@ if (mysqli_num_rows($result) > 0) {
             <script src="js/validacionRegistro.js"></script>
         </div>
     </div>
-
-
 </body>
 
 </html>

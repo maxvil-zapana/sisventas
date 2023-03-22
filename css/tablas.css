@@ -23,6 +23,9 @@ table th{
 .head-table{
     font-size: medium;
 }
+.head-table th{
+    text-transform: capitalize;
+}
 
 .icon-pencil::before{
     text-align: center;

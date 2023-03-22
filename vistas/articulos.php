@@ -19,27 +19,29 @@ if (isset($_SESSION['usuario'])) {
             <div class="grid col-6">
                 <div class="span-2">
                     <!-- -	DETALLE:
-                            -	enctype="multipart/form-data"
-                            -	sirve para que dentro del formulario se pueda subir archivos
-                            -	para el input type file	-->
+                                -	enctype="multipart/form-data"
+                                -	sirve para que dentro del formulario se pueda subir archivos
+                                -	para el input type file	-->
 
                     <form action="" id="frmArticulos" name="frmArticulos" enctype="multipart/form-data">
                         <fieldset>
                             <legend class="tituloForm">Nuevo Artículo</legend>
                             <label for="categoria">Categoria:</label></br>
                             <select name="categoriaSelect" id="categoriaSelect" class="icon-select">
-                                <option value="A">Selecciona Categoria</option>
+                                <option value="b">Selecciona Categoria</option>
                             </select>
                             <label for="nombre">Nombre:</label>
                             <input type="text" name="nombre" id="nombre" class="icon-user">
+
                             <label for="descripcion">Descripción:</label>
-                            <input type="text" name="categoria2" id="categoria2" class="icon-amount">
+                            <input type="text" name="descripcion" id="descripcion" class="icon-amount">
+
                             <label for="cantidad">Cantidad:</label>
-                            <input type="text" name="" id="cantidad" class="icon-description">
+                            <input type="text" name="cantidad" id="cantidad" class="icon-description">
                             <label for="precio">Precio:</label>
                             <input type="number" name="precio" id="precio" class="icon-price">
                             <label for="imagen">Imagen:</label>
-                            <input type="file" name="archivo" id="imagen" class="icon-picture">
+                            <input type="file" name="imagen" id="imagen" class="icon-picture">
                             </br>
                             <div class="botones">
                                 <span class="boton verde btn_center" id="btnAgregarArticulo">Agregar</span>
@@ -87,35 +89,7 @@ if (isset($_SESSION['usuario'])) {
 
     </html>
     <script type="text/javascript">
-        const btn = document.getElementById("btnAgregarArticulo");
-
-        btn.addEventListener('click', async (e) => {
-
-            const datos = serialize(frmArticulos)
-            const vacios = validarFormVacio(datos)
-
-            if (vacios > 0) {
-                alertify.alert("debes llenar todos los campos")
-                return false;
-            }
-
-            const objeto = {
-                method: 'POST',
-                url: '../procesos/articulos/agregarArticulos.php',
-                info: datos
-            }
-
-            const respuesta = await ajax(objeto)
-            console.log(respuesta.response);
-
-            if (respuesta.response == 1) {
-                alertify.alert("Artículo agregado con exito")
-            } else {
-                alertify.alert("no se pudo agregar artículo")
-            }
-
-        })
-
+        $document
     </script>
 
 

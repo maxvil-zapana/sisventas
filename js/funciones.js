@@ -49,7 +49,10 @@ function serialize(form) {
           case 'time':
           case 'url':
           case 'week':
+          case 'file':
+
               q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+              console.log(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
               break;
           case 'checkbox':
           case 'radio':
@@ -57,8 +60,8 @@ function serialize(form) {
                   q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
               }
               break;
-          case 'file':
-              break;
+          // case 'file':
+          //       break;
           }
           break;
       case 'TEXTAREA':
@@ -101,14 +104,14 @@ const ajax=peticion=>{
     xhr.open(peticion.method, peticion.url,true)
     xhr.addEventListener('load', e=>{
       resolve(e.target)
-    //   console.log(e.target);
+      console.log(e.target);
     })
     if(peticion.info){
         //cabecera para que se pueda enviar datos por el metodo send()
       xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
       xhr.send(peticion.info);
       
-    //   console.log(peticion.info);
+      console.log(peticion.info);
     }
     else{
       xhr.send()
@@ -116,4 +119,14 @@ const ajax=peticion=>{
 
 
   })
+}
+
+const load=(elemento,url)=>{
+req=new XMLHttpRequest();
+req.open("GET",url,false)
+req.send(null);
+
+
+
+elemento.innerHTML=req.responseText;
 }
