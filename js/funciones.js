@@ -49,7 +49,7 @@ function serialize(form) {
           case 'time':
           case 'url':
           case 'week':
-          case 'file':
+          
 
               q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
               console.log(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
@@ -64,6 +64,8 @@ function serialize(form) {
           //       break;
           }
           break;
+      case 'file':
+
       case 'TEXTAREA':
           q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
           break;

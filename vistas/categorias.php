@@ -36,8 +36,8 @@ if (isset($_SESSION['usuario'])) {
 
 
         <!-- ======================
-                               *	VENTANA	MODAL   *
-                               ====================== -->
+              *	VENTANA	MODAL   *
+            ====================== -->
         <div id="actualizaCategoria" class="modal">
             <div class="modal-content">
                 <div class="modal-head">

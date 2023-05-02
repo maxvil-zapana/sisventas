@@ -66,7 +66,7 @@ if (isset($_SESSION['usuario'])) {
                         </thead>
                         <tbody>
                             <tr>
-                                - <td></td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -80,6 +80,7 @@ if (isset($_SESSION['usuario'])) {
                                     <span class="icon-remove"></span>
                                 </td>
                             </tr>
+                            
                         </tbody>
                     </table>
                 </div>
