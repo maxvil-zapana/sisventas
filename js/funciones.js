@@ -52,7 +52,7 @@ function serialize(form) {
           
 
               q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
-              console.log(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+              //console.log(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
               break;
           case 'checkbox':
           case 'radio':

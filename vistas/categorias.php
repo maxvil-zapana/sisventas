@@ -63,7 +63,7 @@ if (isset($_SESSION['usuario'])) {
 
     </html>
     <!-- ======================
-         *	AGREGAR CARTEGORIA	*
+         *	AGREGAR CATEGORIA	*
         ====================== -->
     <script type="text/javascript">
 

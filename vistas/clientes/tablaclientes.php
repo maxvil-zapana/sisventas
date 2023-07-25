@@ -1,3 +1,22 @@
+<?php 
+require_once "../../clases/conexion.php";
+
+$obj=new conectar();
+$conexion =$obj->conexion();
+
+$sql="SELECT id_cliente,
+            nombre,
+            apellido,
+            direccion,
+            email,
+            telefono,
+            rfc
+    FROM clientes";
+
+$result = mysqli_query($conexion,$sql);
+?>
+
+
 <table>
     <caption class="title-table">Clientes</caption>
     <thead class="head-table">
@@ -12,21 +31,25 @@
             <th>Eliminar</th>
         </tr>
     </thead>
+    <?php while($ver=mysqli_fetch_row($result)):   ?>
+
     <tbody>
         <tr>
-            <td>esto es una prueba</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $ver[1]; ?></td>
+            <td><?php echo $ver[2]; ?></td>
+            <td><?php echo $ver[3]; ?></td>
+            <td><?php echo $ver[4]; ?></td>
+            <td><?php echo $ver[5]; ?></td>
+            <td><?php echo $ver[6]; ?></td>
             <td class="cell-center">
-                <span class="btn-warnig"><span class="icon-pencil"></span>
+                <span class="btn-warnig" onclick="agregaDatosCliente('<?php echo $ver[0];?>')"><span class="icon-pencil"></span>
                 </span>
             </td>
             <td class="cell-center">
-                <span class="icon-remove"></span>
+                <span class="icon-remove" onclick="eliminarCliente('<?php echo $ver[0];?>')"></span>
             </td>
         </tr>
     </tbody>
+
+    <?php endwhile;?>
 </table>

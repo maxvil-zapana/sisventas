@@ -15,6 +15,10 @@
           <li><a href="articulos.php">Artículos</a></li>
         </ul>
       </li>
+
+<?php
+  if ($_SESSION['usuario']=="admin"):
+ ?>
       <li>
         <a href="#0">Administrar usuarios</a>
         <ul>
@@ -23,6 +27,10 @@
           <li><a href="#0">Levi Strauss</a></li>
         </ul>
       </li>
+<?php endif ?>
+
+
+
       <li>
         <a href="#0">Clientes</a>
         <ul>
@@ -39,7 +47,7 @@
       </li>
 
 
-      <li><a href="#0">Usuario</a>
+      <li><a href="#0">Usuario <?php echo $_SESSION['usuario'] ?> </a>
         <ul>
           <li><a href="../procesos/salir.php">Salir</a></li>
 
