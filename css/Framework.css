@@ -12,10 +12,8 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
 
 @font-face {
     font-family: roboto;
-    src: url(fuentes/Roboto/Roboto-Regular.ttf
-}
-
-
+    src: url(fuentes/Roboto/Roboto-Regular.ttf)
+;}
 
 /* =====================
 *	CONFIGURACION	*
@@ -68,7 +66,7 @@ box-sizing: border-box;
     *	GRID	*
  ===================== */
 /* -	DETALLE: 
-    -	para realizar el efecto se tiene que crear la etiqueta con la clase grid y espedficar con cuantas colunmas vas ser dividido
+    -	para realizar el efecto se tiene que crear la etiqueta con la clase grid y    especificar con cuantas colunmas vas ser dividido
     -	ejm: <div class="grid col-6">
     -	el div anterior sera dividio en 6 partes	*/
 

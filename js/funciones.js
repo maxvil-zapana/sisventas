@@ -117,9 +117,8 @@ const ajax=peticion=>{
     }
     else{
       xhr.send()
+
     }
-
-
   })
 }
 

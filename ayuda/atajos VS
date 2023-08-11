@@ -1,0 +1,6 @@
+Seleccionas lo que deseas rodear
+CTRL+SHIFT+P (En el caso de windows)
+Luego escribes Emmet para que vaya filtrando y seleccionas la opción: Emmet: Wrap with Abbreviation
+Finalmente escribes la etiqueta con la que deseas rodear y presionas enter.
+
+

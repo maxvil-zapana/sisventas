@@ -2,9 +2,8 @@
 session_start();
 if (isset($_SESSION['usuario'])) {
     // echo $_SESSION['usuario'];
+
     ?>
-
-
     <!DOCTYPE html>
     <html lang="en">
 
@@ -24,9 +23,10 @@ if (isset($_SESSION['usuario'])) {
                         <span class="boton" id="ventasHechasBtn">Ventas hechas</span>
                     </div>
                 </div>
-                <div class="span-4"></div>
+                <div class="span-4" style="border:green 1px solid;"></div>
+
                 <div class="span-6 grid col-6">
-                    <div id="ventaProductos" class="span-2">
+                    <div id="ventaProductos" class="span-6 grid col-6">
 
                     </div>
                     <div id="ventasHechas" class="span-6">
