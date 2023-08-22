@@ -1,3 +1,5 @@
+CREATE SCHEMA  'ventas' DEFAULT CHARACTER SET utf8mb4;
+
 create database ventas;
 use ventas;
 create table usuarios(
@@ -24,7 +26,7 @@ create table imagenes(
     fechaSubida date,
     primary key (id_imagen)
 );
-create table productos(
+create table articulos(
     id_producto  int auto_increment,
     id_categoria int not null,
     id_imagen int not null, 

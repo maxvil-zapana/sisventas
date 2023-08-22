@@ -124,61 +124,57 @@ if (isset($_SESSION['usuario'])) {
     <!--===	obtiene los datos de los articulos registrados	===-->
     <script type="text/Javascript">
 
-                                                        /*===	oculta el modal al cargar la pagina	===*/
-                                                        window.onload=function(){
-                                                            abremodalUpdateArticulo.style.display="none";
-                                                        }
-
-                                                        /*===	Funcion que muestra la ventana	===*/
-                                                        function agregaDatosArticulo(idarticulo){
-                                                            abremodalUpdateArticulo.style.display="block";
-
-                                                            fetch('../procesos/articulos/obtenDatosArticulo.php',{
-                                                                method:'POST',
-                                                                headers:{'Content-Type': 'application/json'},
-                                                                body: JSON.stringify({valor:idarticulo})
-                                                            })
-                                                            .then(response=>response.json())
-                                                            .then(data=>{
-                                                                document.getElementById('idArticulo').value=data['id_producto'];
-                                                                document.getElementById('nombreU').value=data['nombre'];
-                                                                document.getElementById('categoriaSelectU').value=data['id_categoria'];
-                                                                document.getElementById('descripcionU').value=data['descripcion'];
-                                                                document.getElementById('cantidadU').value=data['cantidad'];
-                                                                document.getElementById('precioU').value=data['precio'];
-                
-                                                            })
-                                                            .catch(error=>{
-                                                                //manejo de errores
-                                                                console.log('Ha ocurrido el siguiente error', error);
-                                                            })
-                                                        }
-
-                                                        // function agregaDatosArticulo(idarticulo){
-                                                        //     abremodalUpdateArticulo.style.display="block";
-                                                        // 	$.ajax({
-                                                        // 		type:"POST",
-                                                        // 		data:"idart=" + idarticulo,
-                                                        // 		url:"../procesos/articulos/obtenDatosArticulo.php",
-                                                        // 		success:function(r){
-                    
-                                                        // 			dato=jQuery.parseJSON(r);
-                                                        // 			$('#idArticulo').val(dato['id_producto']);
-                                                        // 			$('#categoriaSelectU').val(dato['id_categoria']);
-                                                        // 			$('#nombreU').val(dato['nombre']);
-                                                        // 			$('#descripcionU').val(dato['descripcion']);
-                                                        // 			$('#cantidadU').val(dato['cantidad']);
-                                                        // 			$('#precioU').val(dato['precio']);
-
-                                                        // 		}
-                                                        // 	});
-                                                        // }
-                                                        /*===	Cierra Ventana Modal 	===*/
-                                                        const close = document.getElementById('close');
-                                                        close.onclick=function(){
-                                                            abremodalUpdateArticulo.style.display="none";
-                                                        }
-                                                </script>
+                    /*===	oculta el modal al cargar la pagina	===*/
+                    window.onload=function(){
+                    abremodalUpdateArticulo.style.display="none";
+                    }
+                    /*===	Funcion que muestra la ventana	===*/
+            function agregaDatosArticulo(idarticulo){
+                    abremodalUpdateArticulo.style.display="block";
+                    fetch('../procesos/articulos/obtenDatosArticulo.php',{
+                    method:'POST',
+                    headers:{'Content-Type': 'application/json'},
+                    body: JSON.stringify({valor:idarticulo})
+                })
+                .then(response=>response.json())
+                .then(data=>{
+                document.getElementById('idArticulo').value=data['id_producto'];
+                document.getElementById('nombreU').value=data['nombre'];
+                document.getElementById('categoriaSelectU').value=data['id_categoria'];
+                document.getElementById('descripcionU').value=data['descripcion'];
+                document.getElementById('cantidadU').value=data['cantidad'];
+                document.getElementById('precioU').value=data['precio'];
+             
+                 })
+                .catch(error=>{
+                //manejo de errores
+                console.log('Ha ocurrido el siguiente error', error);
+               })
+             }
+            // function agregaDatosArticulo(idarticulo){
+            //     abremodalUpdateArticulo.style.display="block";
+            // 	$.ajax({
+            // 		type:"POST",
+            // 		data:"idart=" + idarticulo,
+            // 		url:"../procesos/articulos/obtenDatosArticulo.php",
+            // 		success:function(r){
+  
+            // 			dato=jQuery.parseJSON(r);
+            // 			$('#idArticulo').val(dato['id_producto']);
+            // 			$('#categoriaSelectU').val(dato['id_categoria']);
+            // 			$('#nombreU').val(dato['nombre']);
+            // 			$('#descripcionU').val(dato['descripcion']);
+            // 			$('#cantidadU').val(dato['cantidad']);
+            // 			$('#precioU').val(dato['precio']);
+            // 		}
+           // 	});
+           // }
+           /*===	Cierra Ventana Modal 	===*/
+           const close = document.getElementById('close');
+           close.onclick=function(){
+               abremodalUpdateArticulo.style.display="none";
+           }
+            </script>
     <!--===	Actualiza los datos editados en la ventana modal	===-->
     <script type="text/javascript">
         const actualizaArticulo = document.getElementById('btnActualizaArticulo');
@@ -222,12 +218,9 @@ if (isset($_SESSION['usuario'])) {
             const tablaArticuloLoad = document.getElementById("tablaArticuloLoad");
             load(tablaArticuloLoad, 'articulos/tablaArticulos.php');
 
-
-
             $('#btnAgregarArticulo').click(function () {
                 const formulario = document.querySelector('#frmArticulos');
                 const formData = new FormData(formulario);
-
 
                 const datos = serialize(frmArticulos)
                 const vacios = validarFormVacio(datos);
@@ -236,44 +229,45 @@ if (isset($_SESSION['usuario'])) {
                     return false;
                 }
 
+                console.log(formData);
+                fetch('../procesos/articulos/insertaArticulos.php',{
 
-                // console.log(formData);
-                // fetch('../procesos/articulos/insertaArticulos.php',{
-
-                //     method:'POST',
-                //     body:formData
-                // })
-                // .then(response=>{
-                //     if(response.ok){
-                //         return response.text();
-                //     }
-                // })
-                // .then(data=>alert(data))
-
-                $.ajax({
-                    url: "../procesos/articulos/insertaArticulos.php",
-                    type: "post",
-                    datatype: "html",
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    success: function (r) {
-                        alert(r);
-
-                        console.log(r);
-                        if (r == 1) {
-                            $('#frmArticulos')[0].reset();
-
-                            load(tablaArticuloLoad, 'articulos/tablaArticulos.php');
-
-                            alertify.success("Agregado con exito :D");
-                        } else {
-                            alertify.error("fallo al subir el archivo :(");
-                        }
-                    }
-
+                    method:'POST',
+                    body:formData
                 })
+                .then(response=>{
+                    if(response.ok){
+                        console.log(response)
+                        // console.log(response.text())
+                        // return response.text();
+                    }
+                })
+                .then(data=>console.log(data))
+
+                // $.ajax({
+                //     url: "../procesos/articulos/insertaArticulos.php",
+                //     type: "post",
+                //     datatype: "html",
+                //     data: formData,
+                //     cache: false,
+                //     contentType: false,
+                //     processData: false,
+                //     success: function (r) {
+                //         alert(r);
+
+                //         console.log(r);
+                //         if (r == 1) {
+                //             $('#frmArticulos')[0].reset();
+
+                //             load(tablaArticuloLoad, 'articulos/tablaArticulos.php');
+
+                //             alertify.success("Agregado con exito :D");
+                //         } else {
+                //             alertify.error("fallo al subir el archivo :(");
+                //         }
+                //     }
+
+                // })
             })
         })
     </script>

@@ -57,6 +57,55 @@ $conexion = $c->conexion();
 
 </div>
 
+
+
+<script type="text/javascript">
+    async function quitarP(index) {
+
+        const objeto = {
+            method: 'POST',
+            url: '../procesos/ventas/quitarProducto.php',
+            info: 'ind=' + index
+        }
+
+        const respuesta = await ajax(objeto)
+        console.log(respuesta.response);
+
+        if (respuesta.status == 200) {
+            load(tablaVentasTempLoad, "ventas/tablaVentasTemp.php");
+            alertify.success("Se quito el producto")
+        } else {
+            alertify.alert("no se pudo eliminar el producto")
+        }
+    }
+
+    async function crearVenta() {
+        const objeto = {
+            method: 'POST',
+            url: '../procesos/ventas/crearVenta.php'
+        }
+
+
+        const respuesta = await ajax(objeto)
+
+        console.log(respuesta.response);
+
+        if (respuesta.response > 0) {
+            load(tablaVentasTempLoad, "ventas/tablaVentasTemp.php");
+            frmArticulos.reset()
+            alertify.alert("venta creada con exito, consulte la información de esta en ventas hechas :D")
+        } else if (respuesta.response == 0) {
+            alertify.alert("No hay lista de venta!!");
+        } else {
+            alertify.error("No se pudo crear la venta");
+        }
+
+       
+    }
+
+
+</script>
+
 <!-- ==============================
    *	CARGA CONTENIDO DE BOTONES	*
    ===============================-->
@@ -147,26 +196,26 @@ $conexion = $c->conexion();
 
 
     btnVaciarVentas.onclick = function () {
-  const objeto = {
-    method: 'POST',
-    url: '../procesos/ventas/vaciarTemp.php'
-  };
+        const objeto = {
+            method: 'POST',
+            url: '../procesos/ventas/vaciarTemp.php'
+        };
 
-  ajax(objeto)
-    .then(function (respuesta) {
-      console.log(respuesta);
+        ajax(objeto)
+            .then(function (respuesta) {
+                console.log(respuesta);
 
-      if (respuesta.status === 200) {
-        load(tablaVentasTempLoad, "ventas/tablaVentasTemp.php");
-        alertify.alert("Vaciado Correcto");
-      } else {
-        alertify.alert("Error al vaciar");
-      }
-    })
-    .catch(function (error) {
-      console.error('Error durante la solicitud AJAX:', error);
-      alertify.alert("Error al vaciar");
-    });
-};
+                if (respuesta.status === 200) {
+                    load(tablaVentasTempLoad, "ventas/tablaVentasTemp.php");
+                    alertify.alert("Vaciado Correcto");
+                } else {
+                    alertify.alert("Error al vaciar");
+                }
+            })
+            .catch(function (error) {
+                console.error('Error durante la solicitud AJAX:', error);
+                alertify.alert("Error al vaciar");
+            });
+    };
 
 </script>

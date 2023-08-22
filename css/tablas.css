@@ -45,6 +45,26 @@ table th{
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+
+.icon-reporte::before{
+    text-align: center;
+    content:"___";
+    color:transparent;
+    /* border: 1px solid red; */
+    background-image: url('../img/reporte.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-lista::before{
+    text-align: center;
+    content:"___";
+    color:transparent;
+    /* border: 1px solid red; */
+    background-image: url('../img/lista.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 .cell-center{
     text-align: center;
 }

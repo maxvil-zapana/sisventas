@@ -11,7 +11,7 @@ const agregar = document.getElementById('btnAgregarCategoria');
                 const objeto = {
                     method: 'POST',
                     url: '../procesos/categorias/agregaCategoria.php',
-                    info: datos
+                    info: "ind="+index
                 }
 
                 const respuesta = await ajax(objeto)
